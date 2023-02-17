@@ -1,3 +1,8 @@
+# ELECTIVE REACT M1
+
+Application qui permet en se connectant d'avoir une bibliothèque de jeux-vidéos (nom, description, catégorie, jouable en ligne ou pas, etc...) consultable mais aussi de pouvoir ajouter des jeux dans nos favoris et pour chaque jeu pouvoir discuter sous forme de forum pour pouvoir s'inviter à jouer ensemble.
+Pour chaque utilisateur, avoir la possibilité de rajouter son id discord, son mail et son telephone pour pouvoir etre contacter par les personnes sur le forum.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
