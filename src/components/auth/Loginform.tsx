@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default function Loginform() {
+const Loginform = () => {
   return (
     <div>Loginform</div>
   )
 }
+
+export default Loginform;

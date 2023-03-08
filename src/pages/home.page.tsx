@@ -1,10 +1,12 @@
 import React from 'react'
 
-export default function homePage() {
+const HomePage = () => {
   return (
     <div>
       test
     </div>
   );
 }
+
+export default HomePage;
 
