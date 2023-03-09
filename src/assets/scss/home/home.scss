@@ -1,0 +1,82 @@
+/** HOME SECTION **/
+
+.Home {
+    background-color: #121418;
+    min-height: 100vh;
+    display: flex;
+    color: #fff;
+}
+.intro {
+   text-align: center; 
+}
+
+h1 {
+    margin-top: 10%;    
+}
+
+/** NAVBAR AREA **/
+
+
+.Navbar {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__Menu {
+        &__Logo {
+            width: 150px;
+            text-align: center;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        nav {
+            margin-top: 70px;
+
+            ul {
+                list-style: none;
+                padding-left: 0%;
+
+                li {
+                    color: #fff;
+                    padding-bottom: 30px;
+
+                    i {
+                        padding-right: 30px;
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    &__Logout {
+        nav {
+            margin-top: 70px;
+
+            ul {
+                list-style: none;
+                padding-left: 0%;
+
+                li {
+                    color: #fff;
+
+                    i {
+                        padding-right: 30px;
+                        color: #a9777b;
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
