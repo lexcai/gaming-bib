@@ -7,12 +7,12 @@ import { getAuth } from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBNoerhzqpqWEDIN5zE5UmoBqU_mZUBxqc",
-    authDomain: "gaming-bib.firebaseapp.com",
-    projectId: "gaming-bib",
-    storageBucket: "gaming-bib.appspot.com",
-    messagingSenderId: "59905086508",
-    appId: "1:59905086508:web:4ce2aad6abc1a113e32d89"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECTID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGEBUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID,
+    appId: process.env.REACT_APP_FIREBASE_APPID
 };
 
 // Initialize Firebase
