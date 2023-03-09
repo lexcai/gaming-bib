@@ -1,7 +1,11 @@
+/** VARIABLES **/
+
+$BlackGrey: #121418;
+
 /** DASHBOARD SECTION **/
 
 .Dashboard {
-  background-color: #121418;
+  background-color: $BlackGrey;
   min-height: 100vh;
   display: flex;
 }
@@ -13,6 +17,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #20212c;
 
   &__Menu {
     &__Logo {
@@ -58,6 +63,179 @@
         a {
           text-decoration: none;
         }
+      }
+    }
+  }
+}
+
+/** GAMELIST AREA **/
+
+.GameList {
+  width: 70%;
+  margin: 0 auto;
+  &__Title {
+    margin: 30px 0px;
+    h1 {
+      color: #ffffff;
+    }
+  }
+  &__TopArea {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0px;
+    &__Search {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
+      border-radius: 5px;
+      background-color: #20212c;
+
+      i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        color: #fff;
+        background-color: #6a6b74;
+        padding: 8px;
+        margin: 0px 10px 0px 5px;
+        border-radius: 5px;
+      }
+      input {
+        padding: 5px;
+        padding-right: 60px;
+        border: transparent;
+        background-color: transparent;
+        color: #fff;
+      }
+    }
+    &__SortBy {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0px 0px 0px 10px;
+
+      i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
+        color: #fff;
+        background-color: #6a6b74;
+        padding: 10px;
+        margin: 0px 10px 0px 5px;
+        border-radius: 5px;
+        font-size: 1.3em;
+      }
+    }
+  }
+}
+
+/** CARD AREA **/
+
+.CardArea {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+  }
+
+  &__Item {
+    width: 30%;
+    height: 180px;
+    margin: 10px;
+    display: flex;
+    position: relative;
+    border-radius: 10px;
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    p {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      color: #fff;
+      background-color: rgba(32, 33, 44, 0.511);
+      backdrop-filter: blur(1.5rem);
+      border-radius: 0px 0px 10px 10px;
+      padding: 15px 10px;
+      margin: 0;
+    }
+  }
+}
+
+/** FAVORIS AREA **/
+
+.Favoris {
+  width: 70%;
+  margin: 0 auto;
+
+  &__Title {
+    margin: 30px 0px;
+    h1 {
+      color: #ffffff;
+    }
+  }
+  &__TopArea {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0px;
+    &__Search {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
+      border-radius: 5px;
+      background-color: #20212c;
+
+      i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        color: #fff;
+        background-color: #6a6b74;
+        padding: 8px;
+        margin: 0px 10px 0px 5px;
+        border-radius: 5px;
+      }
+      input {
+        padding: 5px;
+        padding-right: 60px;
+        border: transparent;
+        background-color: transparent;
+        color: #fff;
+      }
+    }
+    &__SortBy {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0px 0px 0px 10px;
+
+      i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
+        color: #fff;
+        background-color: #6a6b74;
+        padding: 10px;
+        margin: 0px 10px 0px 5px;
+        border-radius: 5px;
+        font-size: 1.3em;
       }
     }
   }
