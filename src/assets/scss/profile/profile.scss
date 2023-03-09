@@ -1,0 +1,87 @@
+.Profile {
+    background-color: #121418;
+    min-height: 100vh;
+    display: flex;
+
+    &__Main {
+        width: 50%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        &__Title {
+            margin-top: 30px;
+            h1 {
+                color: #ffffff;
+            }
+        }
+        &__Avatar {
+            position: relative;
+            width: 100px;
+            border-radius: 999px;
+            margin: 40px 0px;
+            img {
+                width: 100%;
+                border-radius: 999px;
+            }
+            i {
+                width: 30px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                background-color: #ffffff;
+                border: #121418 3px solid;
+                border-radius: 999px;
+                right: 1px;
+                cursor: pointer;
+            }
+        }
+        &__Form {
+            background-color: #20212c;
+            border-radius: 20px;
+            padding: 20px;
+            span {
+                color: #6a6b74;
+                font-weight: 700;
+            }
+            &__Input {
+                display: flex;
+                justify-content: space-between;
+                input {
+                    width: 70%;
+                    border: transparent;
+                    background: transparent;
+                    color: #fff;
+                }
+
+                .btn {
+                    background-color: #414052;
+                    padding: 0px 20px;
+                    border: transparent;
+                    box-shadow: none;
+
+                    span {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        &__Logout {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            .btn {
+                background-color: #20212c;
+                padding: 20px 20px;
+                border: transparent;
+                border-radius: 10px;
+                box-shadow: none;
+
+                span {
+                    color: #fff;
+                }
+            }
+        }
+    }
+  }

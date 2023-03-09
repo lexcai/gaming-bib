@@ -13,6 +13,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
+  border: red 1px solid;
 
   &__Menu {
     &__Logo {
@@ -35,24 +37,30 @@
             padding-right: 30px;
           }
         }
+        a {
+          text-decoration: none;
+        }
       }
     }
   }
 
   &__Logout {
     nav {
-        margin-top: 70px;
-        ul {
-          list-style: none;
-          padding-left: 0%;
-          li {
-            color: #fff;
-            i {
-              padding-right: 30px;
-              color: #a9777b;
-            }
+      margin-top: 70px;
+      ul {
+        list-style: none;
+        padding-left: 0%;
+        li {
+          color: #fff;
+          i {
+            padding-right: 30px;
+            color: #a9777b;
           }
         }
+        a {
+          text-decoration: none;
+        }
       }
+    }
   }
 }
