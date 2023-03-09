@@ -10,7 +10,6 @@ const Navbar = () => {
             </div>
             <nav>
                 <ul>
-                    <li><i className="bi bi-house-fill"></i>Dashboard</li>
                     <li><i className="bi bi-collection-fill"></i>Librairie</li>
                     <li><i className="bi bi-heart-fill"></i>Favoris</li>
                     <li><i className="bi bi-person-badge-fill"></i>Mon compte</li>
