@@ -1,8 +1,14 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
+import '../../assets/scss/dashboard/dashboard.scss'
+import Navbar from '../../components/game/utils/navbar'
 
  const DashboardPage = () => {
   return (
-    <div>Page</div>
+    <div className='Dashboard'>
+      <Navbar></Navbar>
+      <Outlet></Outlet>
+    </div>
   )
 }
 
