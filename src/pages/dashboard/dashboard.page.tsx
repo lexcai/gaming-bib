@@ -1,4 +1,3 @@
-import React from 'react'
 import { Outlet } from 'react-router-dom'
 import '../../assets/scss/dashboard/dashboard.scss'
 import Navbar from '../../components/game/utils/navbar'

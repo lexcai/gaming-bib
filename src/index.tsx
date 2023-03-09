@@ -12,8 +12,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
         <UserContextProvider>
-    <App></App>
-          </UserContextProvider>
+          <App />
+        </UserContextProvider>
   </BrowserRouter>
 );
 
