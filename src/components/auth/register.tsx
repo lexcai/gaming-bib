@@ -1,6 +1,8 @@
 import React from "react";
 
 const Register = () => {
+  document.title = "Gaming Library - Inscription";
+
   return (
     <div className="Register">
       <div className="Register__Description">

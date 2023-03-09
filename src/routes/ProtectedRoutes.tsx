@@ -8,7 +8,7 @@ import GameList from "../components/game/game-list";
 import AuthPage from "../pages/auth/auth.page";
 import DashboardPage from "../pages/dashboard/dashboard.page";
 import HomePage from "../pages/home.page";
-import ProfilePage from "../pages/profile.page";
+import ProfilePage from "../pages/profile/profile.page";
 
 export default function ProtectedRoutes() {
   return (

@@ -1,6 +1,8 @@
 import React from "react";
 
 const Login = () => {
+  document.title = "Gaming Library - Connexion";
+
   return (
     <div className="Login">
       <div className="Login__Description">
