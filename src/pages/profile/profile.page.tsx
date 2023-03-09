@@ -14,11 +14,11 @@ const ProfilePage = () => {
         <div className="Profile__Main__Title">
           <h1>Mon compte</h1>
         </div>
-        <div className="Profile__Main__Avatar">
-          <i className="bi bi-pencil-fill"></i>
-          <img src={profileImg} alt="ceci est la tete du profil" />
-        </div>
         <form className="Profile__Main__Form">
+          <div className="Profile__Main__Avatar">
+            <i className="bi bi-pencil-fill"></i>
+            <img src={profileImg} alt="ceci est la tete du profil" />
+          </div>
           <div className="mb-3">
             <label htmlFor="username" className="form-label">
               <span>Surnom</span>
@@ -48,18 +48,18 @@ const ProfilePage = () => {
             <div className="Profile__Main__Form__Input">
               <input type="password" className="form-control" id="password" />
               <button type="button" className="btn btn-primary">
-                <span>Change</span>
+                <span>Edit</span>
               </button>
             </div>
           </div>
         </form>
-        <div className="Profile__Main__Logout">
+        {/* <div className="Profile__Main__Logout">
           <Link to={'/auth/login'}>
             <button type="button" className="btn btn-primary">
               Déconnexion
             </button>
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );
