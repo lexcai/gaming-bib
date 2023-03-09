@@ -3,7 +3,6 @@ import "../../assets/scss/profile/profile.scss";
 import Navbar from "../../components/game/utils/navbar";
 import profileImg from "../../assets/img/profile/profile.jpg";
 
-
 const ProfilePage = () => {
   document.title = "Gaming Library - Profil";
 
