@@ -2,10 +2,16 @@ import React from "react";
 import "../../assets/scss/dashboard/dashboard.scss";
 import Game from "../../assets/utils/models/Game";
 import Card from "./utils/card";
-
+  
+  const Mypromise = async () => {
+  const baseURL = "https://www.freetogame.com/api/games"
+  const response = await fetch(baseURL)
+  const text = await response.text()
+  console.log(text)
+  }
 const GameList = () => {
   document.title = "Gaming Library - Librairie";
-
+  
   let Games: Array<Game> = [];
   let Game1: Game = new Game();
   Game1.id = 450;
@@ -15,9 +21,9 @@ const GameList = () => {
   for (let i = 0; i < 5; i++) {
     Games.push(Game1);
   }
-
+  
   return (
-    <div className="GameList">
+    <div className="GameList" onClick={Mypromise}>
       <div className="GameList__Title">
         <h1>Librairie</h1>
       </div>

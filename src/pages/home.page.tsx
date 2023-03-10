@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect } from 'react'
 import { Outlet, Link, useNavigate } from 'react-router-dom'
 import Cookies from 'universal-cookie'
 import '../assets/scss/home/home.scss'
@@ -8,16 +8,17 @@ import { auth } from '../firebase-config'
 const HomePage = () => {
     const navigate = useNavigate()
     const cookies = new Cookies()
-    
+    const existe = cookies.get("monCookie") !== undefined
+
     useEffect(() => {
       const unsubscribe = auth.onAuthStateChanged((user) => {
-        if (!cookies.get("uid")) {
+        if (!existe) {
           navigate("/auth/login")
         } else {
-          console.log("COOKIE UID"+cookies.get("uid"))
+          // console.log("COOKIE UID"+cookies.get("uid"))
           // const uidMemo = useMemo(() => uid, [uid])
           // console.log(uidMemo)
-          navigate('/dashboard/game')
+          navigate("/dashboard/game")
         }
       })
       return unsubscribe

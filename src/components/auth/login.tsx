@@ -29,8 +29,8 @@ const Login = () => {
         ) 
         // à tester
         // formRef.current.reset();
-        setValidation("")
-
+          setValidation("")
+          console.log(cred)
     const uid: string | undefined = auth.currentUser!.uid
         cookies.set("uid", uid, { path: "/" })
         console.log("UID :  ", uid)

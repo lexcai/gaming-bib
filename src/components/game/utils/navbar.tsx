@@ -7,7 +7,7 @@ import { auth } from "../../../firebase-config";
 
 const Navbar = () => {
     const navigate = useNavigate()
-    const cookies = new Cookies
+    const cookies = new Cookies()
 
     const logOut = async () => {
       try {
