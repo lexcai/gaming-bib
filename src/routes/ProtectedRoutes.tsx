@@ -1,4 +1,6 @@
+import { useContext } from 'react'
 import { Route, Routes } from "react-router-dom";
+import { UserContext } from "../context/userContext"
 import Login from "../components/auth/login";
 import Register from "../components/auth/register";
 import Favoris from "../components/game/favoris";
@@ -10,9 +12,13 @@ import HomePage from "../pages/home.page";
 import ProfilePage from "../pages/profile/profile.page";
 
 export default function ProtectedRoutes() {
+      const { currentUser } = useContext(UserContext)
+      console.log("PRIVATE", currentUser)
   return (
     <Routes>
+      (!currentUser 
       <Route path="/" element={<HomePage />}></Route>
+  )
       <Route path="/auth" element={<AuthPage />}>
         <Route path="/auth/login" element={<Login />}></Route>
         <Route path="/auth/sign" element={<Register />}></Route>
@@ -24,5 +30,5 @@ export default function ProtectedRoutes() {
       </Route>
       <Route path="/profile" element={<ProfilePage />}></Route>
     </Routes>
-  );
+  )
 }
