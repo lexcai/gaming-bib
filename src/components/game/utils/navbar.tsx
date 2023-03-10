@@ -1,8 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../assets/img/logo/logo_react.svg";
+import { signOut } from "firebase/auth"
+import { auth } from "../../../firebase-config";
 
 const Navbar = () => {
+    const navigate = useNavigate()
+
+    const logOut = async () => {
+      try {
+        await signOut(auth)
+        navigate("/")
+      } catch {
+        alert(
+          "For some reasons we can't deconnect, please check your internet connexion and retry."
+        )
+      }
+    }
 
   return (
     <div className="Navbar">
@@ -33,11 +47,11 @@ const Navbar = () => {
       <div className="Navbar__Logout">
         <nav>
           <ul>
-            <Link to={"/auth/login"}>
+            {/* <Link to={"/auth/login"}> */}
               <li>
-                <i className="bi bi-box-arrow-left"></i>Deconnexion
+                <i className="bi bi-box-arrow-left" onClick={logOut}></i>Deconnexion
               </li>
-            </Link>
+            {/* </Link> */}
           </ul>
         </nav>
       </div>
