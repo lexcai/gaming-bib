@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../assets/img/logo/logo_react.svg";
 import { signOut } from "firebase/auth"
@@ -48,8 +48,8 @@ const Navbar = () => {
         <nav>
           <ul>
             {/* <Link to={"/auth/login"}> */}
-              <li onClick={logOut}>
-                <i className="bi bi-box-arrow-left"></i>Deconnexion
+              <li>
+                <i className="bi bi-box-arrow-left" onClick={logOut}></i>Deconnexion
               </li>
             {/* </Link> */}
           </ul>
