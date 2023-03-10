@@ -12,16 +12,17 @@ export function UserContextProvider(props: { children: React.ReactNode }) {
   const [currentUser, setCurrentUser] = useState()
   const [loadingData, setLoadingData] = useState(true)
 
+
+
   const signUp = (email: string, pwd: string) =>
   createUserWithEmailAndPassword(auth, email, pwd)
   const signIn = (email: string, pwd: string) =>
-    signInWithEmailAndPassword(auth, email, pwd)
-  
-  console.log("MAJ", currentUser)
-
+  signInWithEmailAndPassword(auth, email, pwd)
+        
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (currentUser: any) => {
         setCurrentUser(currentUser)
+        
         setLoadingData(false)
       })
 

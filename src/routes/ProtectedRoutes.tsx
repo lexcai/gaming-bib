@@ -22,19 +22,13 @@ export default function ProtectedRoutes() {
         <Route path="/auth/login" element={<Login />}></Route>
         <Route path="/auth/sign" element={<Register />}></Route>
       </Route>
-      <Route path="/private" element={<Private />}>
-        <Route path="/private/dashboard" element={<DashboardPage />}>
-          <Route path="/private/dashboard/game" element={<GameList />}></Route>
-          <Route
-            path="/private/dashboard/game/:id"
-            element={<GameDetails />}
-          ></Route>
-          <Route
-            path="/private/dashboard/favoris"
-            element={<Favoris />}
-          ></Route>
+      <Route path="/dashboard" element={<Private />}>
+        <Route path="/dashboard" element={<DashboardPage />}>
+          <Route path="/dashboard/game" element={<GameList />}></Route>
+          <Route path="/dashboard/game/:id" element={<GameDetails />}></Route>
+          <Route path="/dashboard/favoris" element={<Favoris />}></Route>
         </Route>
-        <Route path="/private/profile" element={<ProfilePage />}></Route>
+        <Route path="/dashboard/profile" element={<ProfilePage />}></Route>
       </Route>
     </Routes>
   )

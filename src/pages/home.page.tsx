@@ -1,8 +1,28 @@
-import { Outlet, Link } from 'react-router-dom'
+import { useEffect, useMemo } from 'react'
+import { Outlet, Link, useNavigate } from 'react-router-dom'
+import Cookies from 'universal-cookie'
 import '../assets/scss/home/home.scss'
 import Navbar from '../components/game/utils/navbar'
+import { auth } from '../firebase-config'
 
 const HomePage = () => {
+    const navigate = useNavigate()
+    const cookies = new Cookies()
+    
+    useEffect(() => {
+      const unsubscribe = auth.onAuthStateChanged((user) => {
+        if (!cookies.get("uid")) {
+          navigate("/auth/login")
+        } else {
+          console.log("COOKIE UID"+cookies.get("uid"))
+          // const uidMemo = useMemo(() => uid, [uid])
+          // console.log(uidMemo)
+          navigate('/dashboard/game')
+        }
+      })
+      return unsubscribe
+    }, [navigate])
+    
   return (
     <div className="Home">
       <Navbar></Navbar>
