@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../assets/img/logo/logo_react.svg";
 import { signOut } from "firebase/auth"
