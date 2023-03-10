@@ -10,25 +10,32 @@ import AuthPage from "../pages/auth/auth.page";
 import DashboardPage from "../pages/dashboard/dashboard.page";
 import HomePage from "../pages/home.page";
 import ProfilePage from "../pages/profile/profile.page";
+import Private from '../pages/private/Private';
 
 export default function ProtectedRoutes() {
       const { currentUser } = useContext(UserContext)
       console.log("PRIVATE", currentUser)
   return (
     <Routes>
-      (!currentUser 
       <Route path="/" element={<HomePage />}></Route>
-  )
       <Route path="/auth" element={<AuthPage />}>
         <Route path="/auth/login" element={<Login />}></Route>
         <Route path="/auth/sign" element={<Register />}></Route>
       </Route>
-      <Route path="/dashboard" element={<DashboardPage />}>
-        <Route path="/dashboard/game" element={<GameList />}></Route>
-        <Route path="/dashboard/game/:id" element={<GameDetails />}></Route>
-        <Route path="/dashboard/favoris" element={<Favoris />}></Route>
+      <Route path="/private" element={<Private />}>
+        <Route path="/private/dashboard" element={<DashboardPage />}>
+          <Route path="/private/dashboard/game" element={<GameList />}></Route>
+          <Route
+            path="/private/dashboard/game/:id"
+            element={<GameDetails />}
+          ></Route>
+          <Route
+            path="/private/dashboard/favoris"
+            element={<Favoris />}
+          ></Route>
+        </Route>
+        <Route path="/private/profile" element={<ProfilePage />}></Route>
       </Route>
-      <Route path="/profile" element={<ProfilePage />}></Route>
     </Routes>
   )
 }
