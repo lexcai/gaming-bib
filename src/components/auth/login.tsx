@@ -1,16 +1,44 @@
-import { useContext } from 'react'
+import { useRef, useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../context/userContext';
+// import { UserContext } from '../../context/userContext';
  
 const Login = () => {
 
-  const {modalState, toggleModals} = useContext(UserContext)
-  console.log(modalState, toggleModals)
+  const { signIn } = useContext(UserContext)
+  const inputs = useRef<any[]>([])
+  const [validation, setValidation] = useState('')
+  let navigate = useNavigate()
+  const formRef = useRef<any>()
+  
+  const addInputs = (el: never) => {
+    if(el && !inputs.current.includes(el)) {
+        inputs.current.push(el)
+    }
+  }
+    const handleForm = async (e: any) => {
+      e.preventDefault()
+      console.log(inputs)
+      try {
+        const cred = await signIn(
+          inputs.current[0].value,
+          inputs.current[1].value
+        )
+        // à tester
+        // formRef.current.reset();
+        setValidation('')
+        console.log(cred);
+        navigate("/dashboard")
+      } catch {
+        setValidation("Wopsy, email and/or password incorrect")
+      }
+    }
 
   document.title = "Gaming Library - Connexion";
 
   return (
     <>
-    {/* {modalState.login && ( */}
+      {/* {modalState.login && ( */}
       <div className="Login">
         <div className="Login__Description">
           <h1>Lorem ipsum dolor sit amet</h1>
@@ -21,9 +49,10 @@ const Login = () => {
             nam alias, maiores unde quis?
           </p>
         </div>
-        <form className="Login__Form">
+        <form className="Login__Form" ref={formRef}>
           <div className="mb-3">
             <input
+              ref={addInputs}
               type="email"
               className="form-control"
               id="email"
@@ -32,13 +61,19 @@ const Login = () => {
           </div>
           <div className="mb-3">
             <input
+              ref={addInputs}
               type="password"
               className="form-control"
               id="password"
               placeholder="Mot de passe"
             />
           </div>
-          <button type="button" className="btn btn-primary mb-3">
+          <p className="text-danger mt-1">{validation}</p>
+          <button
+            type="button"
+            onClick={handleForm}
+            className="btn btn-primary mb-3"
+          >
             <span>Se connecter</span>
             <i className="bi bi-arrow-right bi-2x"></i>
           </button>
@@ -47,9 +82,10 @@ const Login = () => {
           </div>
         </form>
       </div>
-    {/* )} */}
+      {/* )} */}
     </>
   )
 };
 
 export default Login;
+
