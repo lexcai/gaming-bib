@@ -7,7 +7,7 @@ import { auth } from '../../firebase-config';
  
 const Login = () => {
   const cookies = new Cookies()
-  const { signIn, } = useContext(UserContext)
+  const { signIn } = useContext(UserContext)
   const inputs = useRef<any[]>([])
   const [validation, setValidation] = useState('')
 
