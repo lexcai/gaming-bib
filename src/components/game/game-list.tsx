@@ -39,7 +39,7 @@ const GameList = () => {
     document.title = "Gaming Library - Librairie"
     console.log(games);
     
-  }, [])
+  }, [games])
 
   return (
     <div className="GameList">

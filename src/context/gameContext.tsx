@@ -5,13 +5,13 @@ export const GameContext = createContext<any>(null);
 
 export function GameContextProvider(props: { children: React.ReactNode }) {
   const [loadingData, setLoadingData] = useState(true);
-  const [games, setGame] = useState<Game[]>([]);
+  const [games, setGames] = useState<Game[]>([]);
 
   useEffect(() => {
     if(!games.length) {
       initData();
     }
-  });
+  }, [games]);
 
   const initData = async () => {
     return fillList("");
@@ -38,14 +38,13 @@ export function GameContextProvider(props: { children: React.ReactNode }) {
   };
 
   const fillList = async (query: string | null = "") => {
-    const data = await fetchData(query);
-    const gamesdata: Game[] = [];
+    let data : Game[] = await fetchData(query);
+    let gamesdata: Game[] = [];
     for (const game of data) {
       gamesdata.push(game);
     }
-    console.log(gamesdata);
-    
-    return setGame(gamesdata);
+    setGames(gamesdata);
+    setLoadingData(false);
   };
   
 
