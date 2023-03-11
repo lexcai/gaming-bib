@@ -5,8 +5,7 @@ import Game from "../../assets/utils/models/Game";
 import Card from "./utils/card";
 
 const GameList = () => {
-    const [games, setGames] = useState<Game[]>([])
-    const { gameListProvider } = useContext(GameContext)
+    const { gameListProvider, games } = useContext(GameContext)
     const [resultFound, setresultFound] = useState("")
     const inputs = useRef<any[]>([])
     const searchRef = useRef<any>()
@@ -33,8 +32,8 @@ const GameList = () => {
       }
     }
   useEffect(() => {
-    setGames(gameListProvider())
-  }, [gameListProvider])
+    gameListProvider(games)
+  }, [gameListProvider, games])
 
     document.title = "Gaming Library - Librairie"
   return (
