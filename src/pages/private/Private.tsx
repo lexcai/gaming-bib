@@ -12,7 +12,7 @@ export default function Private() {
     }
 
     return (
-        <div className="container">
+        <div className="container-fluid">
             <Outlet />
         </div>
     )
