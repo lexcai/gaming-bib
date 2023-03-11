@@ -39,7 +39,7 @@ const Navbar = () => {
                 <i className="bi bi-heart-fill"></i>Favoris
               </li>
             </Link>
-            <Link to={"/profile"}>
+            <Link to={"/dashboard/profile"}>
               <li>
                 <i className="bi bi-person-badge-fill"></i>Compte
               </li>

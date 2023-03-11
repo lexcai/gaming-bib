@@ -27,8 +27,9 @@ export default function ProtectedRoutes() {
           <Route path="/dashboard/game" element={<GameList />}></Route>
           <Route path="/dashboard/game/:id" element={<GameDetails />}></Route>
           <Route path="/dashboard/favoris" element={<Favoris />}></Route>
+          <Route path="/dashboard/profile" element={<ProfilePage />}></Route>
         </Route>
-        <Route path="/dashboard/profile" element={<ProfilePage />}></Route>
+        
       </Route>
     </Routes>
   )

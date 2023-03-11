@@ -7,8 +7,6 @@ const ProfilePage = () => {
   document.title = "Gaming Library - Profil";
 
   return (
-    <div className="Profile">
-      <Navbar></Navbar>
       <div className="Profile__Main">
         <div className="Profile__Main__Title">
           <h1>Mon compte</h1>
@@ -60,7 +58,6 @@ const ProfilePage = () => {
           </Link>
         </div> */}
       </div>
-    </div>
   );
 };
 
