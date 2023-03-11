@@ -8,7 +8,7 @@ const GameList = () => {
 
   let Games: Array<Game> = [];
   let Game1: Game = new Game();
-  Game1.id = 1;
+  Game1.id = 450;
   Game1.title = "BlackShot: Revolution";
   Game1.thumbnail = "https://www.freetogame.com/g/282/thumbnail.jpg";
 

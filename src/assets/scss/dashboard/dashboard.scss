@@ -13,6 +13,7 @@ $BlackGrey: #121418;
 /** NAVBAR AREA **/
 
 .Navbar {
+  width: 20%;
   padding: 50px;
   display: flex;
   flex-direction: column;
@@ -74,7 +75,7 @@ $BlackGrey: #121418;
   width: 70%;
   margin: 0 auto;
   &__Title {
-    margin: 30px 0px;
+    margin: 50px 0px;
     h1 {
       color: #ffffff;
     }
@@ -181,7 +182,7 @@ $BlackGrey: #121418;
   margin: 0 auto;
 
   &__Title {
-    margin: 30px 0px;
+    margin: 50px 0px;
     h1 {
       color: #ffffff;
     }
@@ -237,6 +238,21 @@ $BlackGrey: #121418;
         border-radius: 5px;
         font-size: 1.3em;
       }
+    }
+  }
+}
+
+/** GAME DETAILS AREA **/
+
+.GameDetails {
+  width: 80%;
+  margin: 0 auto;
+  &__Header {
+    height: 100vh;
+    img {
+      width: 100%;
+      filter: blur(1px);
+      opacity: .5;
     }
   }
 }

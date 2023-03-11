@@ -10,7 +10,7 @@ const Navbar = () => {
     const logOut = async () => {
       try {
         await signOut(auth)
-        navigate("/")
+        navigate("/auth/login")
       } catch {
         alert(
           "For some reasons we can't deconnect, please check your internet connexion and retry."
@@ -38,7 +38,7 @@ const Navbar = () => {
             </Link>
             <Link to={"/profile"}>
               <li>
-                <i className="bi bi-person-badge-fill"></i>Mon compte
+                <i className="bi bi-person-badge-fill"></i>Compte
               </li>
             </Link>
           </ul>
@@ -48,8 +48,8 @@ const Navbar = () => {
         <nav>
           <ul>
             {/* <Link to={"/auth/login"}> */}
-              <li>
-                <i className="bi bi-box-arrow-left" onClick={logOut}></i>Deconnexion
+              <li onClick={logOut}>
+                <i className="bi bi-box-arrow-left"></i>Deconnexion
               </li>
             {/* </Link> */}
           </ul>
