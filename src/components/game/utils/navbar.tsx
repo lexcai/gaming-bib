@@ -51,8 +51,8 @@ const Navbar = () => {
         <nav>
           <ul>
             {/* <Link to={"/auth/login"}> */}
-              <li>
-                <i className="bi bi-box-arrow-left" onClick={logOut}></i>Deconnexion
+              <li onClick={logOut}>
+                <i className="bi bi-box-arrow-left"></i>Deconnexion
               </li>
             {/* </Link> */}
           </ul>
