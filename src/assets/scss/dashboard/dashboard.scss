@@ -74,6 +74,7 @@ $BlackGrey: #121418;
 
 .GameList {
   width: 70%;
+  
   margin: 0 auto;
   &__Title {
     margin: 50px 0px;
@@ -144,6 +145,8 @@ $BlackGrey: #121418;
   flex-direction: row;
   justify-content: start;
   align-items: center;
+  overflow-y: auto;
+  height: 60vh;
 
   a {
     text-decoration: none;
@@ -257,8 +260,8 @@ $BlackGrey: #121418;
       width: 100%;
       position: absolute;
       z-index:2;
-      filter: blur(1px);
       opacity: .5;
+      border-radius: 15px;
     }
   }
 }

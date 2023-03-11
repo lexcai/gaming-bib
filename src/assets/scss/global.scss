@@ -23,3 +23,27 @@ $prefix: "mo-";
 // google fonts
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+// scrollbar
+
+* {
+  scrollbar-width: none;
+  scrollbar-color: #20212c;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 14px;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #20212c;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #6a6b74;
+  border-radius: 10px;
+  border: transparent;
+  padding: 5px;
+}
