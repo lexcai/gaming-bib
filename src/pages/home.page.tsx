@@ -22,7 +22,7 @@ const HomePage = () => {
         }
       })
       return unsubscribe
-    }, [navigate])
+    }, [existe, navigate])
     
   return (
     <div className="Home">

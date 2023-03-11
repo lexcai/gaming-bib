@@ -4,11 +4,19 @@ import Game from "../../assets/utils/models/Game";
 import Card from "./utils/card";
   
   const Mypromise = async () => {
-  const baseURL = "https://www.freetogame.com/api/games"
-  const response = await fetch(baseURL)
-  const text = await response.text()
-  console.log(text)
-  }
+  // const baseURL = "https://www.freetogame.com/api/games"
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': process.env.REACT_GAME_API,
+		'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+	}
+}as const;
+
+fetch('https://free-to-play-games-database.p.rapidapi.com/api/filter?tag=3d.mmorpg.fantasy.pvp&platform=pc', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
 const GameList = () => {
   document.title = "Gaming Library - Librairie";
   
