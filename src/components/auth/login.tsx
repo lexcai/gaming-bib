@@ -21,7 +21,6 @@ const Login = () => {
   }
     const handleForm = async (e: any) => {
       e.preventDefault()
-      console.log(inputs)
       try {
         const cred = await signIn(
           inputs.current[0].value,
@@ -30,11 +29,8 @@ const Login = () => {
         // à tester
         // formRef.current.reset();
           setValidation("")
-          console.log(cred)
     const uid: string | undefined = auth.currentUser!.uid
         cookies.set("uid", uid, { path: "/" })
-        console.log("UID :  ", uid)
-        // console.log(cred)
         navigate("/dashboard/game")
       } catch {
         setValidation("Wopsy, email and/or password incorrect")

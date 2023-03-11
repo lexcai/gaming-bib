@@ -8,7 +8,6 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ game }) => {
-  console.log(game);
 
   return (
     <Link className="CardArea__Item" to={"/dashboard/game/" + game.id}>

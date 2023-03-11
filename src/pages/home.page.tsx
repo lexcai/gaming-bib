@@ -15,9 +15,7 @@ const HomePage = () => {
         if (!existe) {
           navigate("/auth/login")
         } else {
-          // console.log("COOKIE UID"+cookies.get("uid"))
           // const uidMemo = useMemo(() => uid, [uid])
-          // console.log(uidMemo)
           navigate("/dashboard/game")
         }
       })

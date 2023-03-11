@@ -1,52 +1,57 @@
-import { createContext, useState } from "react"
-import Game from "../assets/utils/models/Game"
+import { createContext, useEffect, useState } from "react";
+import Game from "../assets/utils/models/Game";
 
-export const GameContext = createContext<any>(null)
+export const GameContext = createContext<any>(null);
 
 export function GameContextProvider(props: { children: React.ReactNode }) {
-  const [loadingData, setLoadingData] = useState(true)
-  const [games, setGames] = useState<Game[]>([])
+  const [loadingData, setLoadingData] = useState(true);
+  const [games, setGame] = useState<Game[]>([]);
 
-  const gameListProvider = (query: string, gameObj: object): object => {
-    return fillList(query, gameObj)
-  }
+  useEffect(() => {
+    if(!games.length) {
+      initData();
+    }
+  });
+
+  const initData = async () => {
+    return fillList("");
+  };
 
   const fetchData = async (query: string | null) => {
-    console.log("OK")
     const options = {
-      method: "GET",
       headers: {
-        "X-RapidAPI-Key": "d142297cf2msh024b1853e5b4ee4p11a3b7jsne9bad46a88d0",
-        "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
+        'X-RapidAPI-Key': '7a8f0a0e71msh0e7b6644496df46p15454bjsn2f2c71a49a68',
+        'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
       },
-    }
+    };
 
     try {
-      console.log("OK ///")
       const response = await fetch(
         "https://free-to-play-games-database.p.rapidapi.com/api/games" + query,
         options
-      )
-      console.log("OK ///")
-      const result = await response.json()
-      console.log("RESULT OF THE PROMISE ", result)
-      return result
+      );
+      const result = await response.json();
+      return result;
     } catch (error) {
-      setLoadingData(false)
-      console.log("KO /// ", error)
+      setLoadingData(false);
     }
-  }
+  };
 
-  const fillList = async (query: string | null, gamesObj: object) => {
-    const json = await fetchData(query)
-    const games: Game[] = Object.keys(json).map((key) => json[key])
-    setGames(games)
-    return games
-  }
+  const fillList = async (query: string | null = "") => {
+    const data = await fetchData(query);
+    const gamesdata: Game[] = [];
+    for (const game of data) {
+      gamesdata.push(game);
+    }
+    console.log(gamesdata);
+    
+    return setGame(gamesdata);
+  };
+  
 
   return (
-    <GameContext.Provider value={{ gameListProvider, games }}>
+    <GameContext.Provider value={{ games }}>
       {!loadingData && props.children}
     </GameContext.Provider>
-  )
+  );
 }

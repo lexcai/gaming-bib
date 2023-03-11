@@ -5,37 +5,42 @@ import Game from "../../assets/utils/models/Game";
 import Card from "./utils/card";
 
 const GameList = () => {
-    const { gameListProvider, games } = useContext(GameContext)
-    const [resultFound, setresultFound] = useState("")
-    const inputs = useRef<any[]>([])
-    const searchRef = useRef<any>()
+  const { games } = useContext(GameContext)
+  const [resultFound, setresultFound] = useState("")
+  const inputs = useRef<any[]>([])
+  const searchRef = useRef<any>()
 
-    const addInputs = (el: never) => {
-      if (el && !inputs.current.includes(el)) {
-        inputs.current.push(el)
-      }
+  console.log(games);
+  
+
+  const addInputs = (el: never) => {
+    if (el && !inputs.current.includes(el)) { 
+      inputs.current.push(el)
     }
-    const handleSearch = async (e: any) => {
-      e.preventDefault()
-      console.log(inputs)
-      try {
-        const searchInput = await gameListProvider(
-          inputs.current[0].value,
-        )
-        setresultFound("")
-        // à tester
-        // formRef.current.reset();
-        console.log(searchInput)
-        
-      } catch {
-        setresultFound("Wopsy,aucun jeu n'a été retrouvé")
-      }
+  }
+
+  const handleSearch = async (e: any) => {
+    e.preventDefault()
+    try {
+      // const searchInput = await gameListProvider(
+      //   inputs.current[0].value,
+      //   {}
+      // )
+      setresultFound("")
+      // à tester
+      // formRef.current.reset();
+      
+    } catch {
+      setresultFound("Wopsy,aucun jeu n'a été retrouvé")
     }
+  }
+
   useEffect(() => {
-    gameListProvider(games)
-  }, [gameListProvider, games])
-
     document.title = "Gaming Library - Librairie"
+    console.log(games);
+    
+  }, [])
+
   return (
     <div className="GameList">
       <div className="GameList__Title">
@@ -66,3 +71,4 @@ const GameList = () => {
 }
 
 export default GameList;
+

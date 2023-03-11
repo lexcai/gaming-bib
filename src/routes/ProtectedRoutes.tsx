@@ -14,7 +14,6 @@ import Private from '../pages/private/Private';
 
 export default function ProtectedRoutes() {
       const { currentUser } = useContext(UserContext)
-      console.log("PRIVATE", currentUser)
   return (
     <Routes>
       <Route path="/" element={<HomePage />}></Route>
@@ -29,7 +28,6 @@ export default function ProtectedRoutes() {
           <Route path="/dashboard/favoris" element={<Favoris />}></Route>
           <Route path="/dashboard/profile" element={<ProfilePage />}></Route>
         </Route>
-        
       </Route>
     </Routes>
   )
