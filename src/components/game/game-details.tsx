@@ -7,10 +7,13 @@ const GameDetails = () => {
 
   const params = useParams();
 
+  
+
   return (
     <div className='GameDetails'>
       <div className="GameDetails__Header">
         <img src={'https://www.freetogame.com/g/'+ params.id + '/background.jpg'} alt="voila le header" />
+        <h1>{}</h1>
       </div>
     </div>
   )
