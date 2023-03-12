@@ -10,9 +10,11 @@ import AuthPage from "../pages/auth/auth.page";
 import DashboardPage from "../pages/dashboard/dashboard.page";
 import HomePage from "../pages/home.page";
 import ProfilePage from "../pages/profile/profile.page";
+import Private from '../pages/private/Private';
 
 export default function ProtectedRoutes() {
       const { currentUser } = useContext(UserContext)
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />}></Route>
