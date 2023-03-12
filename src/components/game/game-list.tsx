@@ -6,8 +6,6 @@ import Card from "./utils/card"
 
 const GameList = () => {
   const { games } = useContext(GameContext)
-
-  const inputs = useRef<any[]>([])
   const searchRef = useRef<any>()
   const [searchResult, setSearchResult] = useState<Game[]>([])
   const [searchTerm, setSearchTerm] = useState("")
@@ -29,17 +27,8 @@ const GameList = () => {
     setSearchResult(filteredData)
   }, [searchTerm, games])
 
-  const addInputs = (el: never) => {
-    if (el && !inputs.current.includes(el)) {
-      inputs.current.push(el)
-    }
-  }
-    document.title = "Gaming Library - Librairie"
 
-  // useEffect(() => {
-  //   document.title = "Gaming Library - Librairie"
-  //   console.log(games)
-  // }, [games])
+    document.title = "Gaming Library - Librairie"
 
   return (
     <div className="GameList">
@@ -50,7 +39,6 @@ const GameList = () => {
         <div className="GameList__TopArea__Search">
           <i className="bi bi-search" ref={searchRef}></i>
             <input
-              ref={addInputs}
               onChange={handleSearch}
               name="searchTerm"
               type="text"
