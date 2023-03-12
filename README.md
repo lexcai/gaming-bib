@@ -25,12 +25,13 @@ Pour chaque utilisateur, avoir la possibilité de rajouter son id discord, son m
 
 ## RESTE A FAIRE
 - Finir la feature Favoris
+- Faire la recherche par filtres
 - Faire systèmes de notation de jeu {BONUS}
 - Faire connection avec un autre api qui reference les giveaways en fonction des jeux {BONUS}
 
 
 # Lien vers l'application web : 
-
+- https://gaming-bib.web.app/
 
 # Démarrer avec Create React App
 
