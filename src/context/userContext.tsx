@@ -13,6 +13,7 @@ export type UserContextProps = {
   currentUser: Users;
   signIn: (email: string, pwd: string) => Promise<any>;
   signUp: (email: string, pwd: string) => Promise<any>;
+  updateUsers: (uid: string, field: string, value: any) => Promise<any>;
 };
 
 export const UserContext = createContext<UserContextProps>({
@@ -21,6 +22,9 @@ export const UserContext = createContext<UserContextProps>({
     return new Promise((resolve, reject) => {});
   },
   signUp: async (email: string, pwd: string) => {
+    return new Promise((resolve, reject) => {});
+  },
+  updateUsers: async (uid: string, field: string, value: any) => {
     return new Promise((resolve, reject) => {});
   },
 });
@@ -62,8 +66,22 @@ export function UserContextProvider(props: { children: React.ReactNode }) {
     return unsubscribe;
   }, []);
 
+  const updateUsers = async (uid: string, field: string, value: any) => {
+    try {
+      await request.updateUserField(uid, field, value);
+      console.log(
+        `Field "${field}" successfully updated for user with UID "${uid}".`
+      );
+    } catch (error) {
+      console.error(
+        `Error updating field "${field}" for user with UID "${uid}":`,
+        error
+      );
+    }
+  };
+
   return (
-    <UserContext.Provider value={{ signUp, currentUser, signIn }}>
+    <UserContext.Provider value={{ signUp, currentUser, signIn, updateUsers }}>
       {!loadingData && props.children}
     </UserContext.Provider>
   );

@@ -25,7 +25,8 @@ Pour chaque utilisateur, avoir la possibilité de rajouter son id discord, son m
 
 ## RESTE A FAIRE
 - Finir la feature Favoris
-- 
+- Faire systèmes de notation de jeu {BONUS}
+- Faire connection avec un autre api qui reference les giveaways en fonction des jeux {BONUS}
 
 
 # Lien vers l'application web : 
@@ -37,43 +38,44 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+
 In the project directory, you can run:
+### `npm install`
+
+Afin de lire le package.json et installé les dependances nécessaire au fonctionnement de l'application 
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Exécute l'application en mode développement.
+Ouvrez [http://localhost:3000](http://localhost:3000) pour l'afficher dans le navigateur.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+La page sera rechargée si vous faites des modifications.
+Vous verrez également toutes les erreurs de lint dans la console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Construit l'application pour la production dans le dossier `build`.
+Il intègre correctement React en mode production et optimise la construction pour obtenir les meilleures performances.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Le build est minifié et les noms de fichiers incluent les hashs.\N- L'application est prête à être déployée.
+Votre application est prête à être déployée !
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Voir la section [deployment](https://facebook.github.io/create-react-app/docs/deployment) pour plus d'informations.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Remarque : il s'agit d'une opération à sens unique. Une fois que vous `éjectez`, vous ne pouvez plus revenir en arrière!**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Si vous n'êtes pas satisfait de l'outil de construction et des choix de configuration, vous pouvez vous `éjecter` à tout moment. Cette commande supprimera la seule dépendance de construction de votre projet.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+A la place, elle copiera tous les fichiers de configuration et les dépendances transitives (webpack, Babel, ESLint, etc) directement dans votre projet afin que vous ayez un contrôle total sur eux. Toutes les commandes, à l'exception de `eject`, fonctionneront toujours, mais elles pointeront vers les scripts copiés afin que vous puissiez les modifier. A ce stade, vous êtes seul.
 
-## Learn More
+Vous n'aurez jamais à utiliser `eject`. L'ensemble des fonctionnalités est adapté aux petits et moyens déploiements, et vous ne devriez pas vous sentir obligé d'utiliser cette fonctionnalité. Cependant, nous comprenons que cet outil ne serait pas utile si vous ne pouviez pas le personnaliser lorsque vous êtes prêt à le faire.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## En savoir plus
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Pour en savoir plus, consultez la [documentation sur la création d'une application React] (https://facebook.github.io/create-react-app/docs/getting-started).
+
+Pour apprendre React, consultez la [documentation React](https://reactjs.org/).

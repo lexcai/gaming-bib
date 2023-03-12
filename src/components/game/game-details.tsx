@@ -84,7 +84,7 @@ const GameDetails = () => {
                 key={chat.id}
                 className="GameDetails__Chat__Main__TextArea__Message"
               >
-                <h2>{chat.Users?.Pseudo}</h2>
+                <h2>{chat.Users?.username ? chat.Users?.username : chat.Users?.Mail}</h2>
                 <p>{chat.message}</p>
               </div>
             ))}
