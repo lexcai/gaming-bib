@@ -1,13 +1,16 @@
 import { useRef, useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import  Cookies  from 'universal-cookie'
 import { UserContext } from '../../context/userContext';
+import { auth } from '../../firebase-config';
 // import { UserContext } from '../../context/userContext';
  
 const Login = () => {
-
+  const cookies = new Cookies()
   const { signIn } = useContext(UserContext)
   const inputs = useRef<any[]>([])
   const [validation, setValidation] = useState('')
+
   let navigate = useNavigate()
   const formRef = useRef<any>()
   
@@ -18,17 +21,17 @@ const Login = () => {
   }
     const handleForm = async (e: any) => {
       e.preventDefault()
-      console.log(inputs)
       try {
         const cred = await signIn(
           inputs.current[0].value,
           inputs.current[1].value
-        )
+        ) 
         // à tester
         // formRef.current.reset();
-        setValidation('')
-        console.log(cred);
-        navigate("/dashboard")
+          setValidation("")
+    const uid: string | undefined = auth.currentUser!.uid
+        cookies.set("uid", uid, { path: "/" })
+        navigate("/dashboard/game")
       } catch {
         setValidation("Wopsy, email and/or password incorrect")
       }

@@ -18,18 +18,10 @@ const Register = () => {
     e.preventDefault()
 
     if (inputs.current[1].value.length < 6 || inputs.current[2].value.length < 6) {
-      console.log(
-        "length value 1 =" + inputs.current[1].value.length,
-        "length value 2 = " + inputs.current[2].value.length
-      )
       setValidation("6 charactères minimum.")
       return
     }
     if (inputs.current[1].value !== inputs.current[2].value) {
-      console.log(
-        "value 1 = " + inputs.current[1].value,
-        "value 2 = " + inputs.current[2].value
-      )
       setValidation("Les mots de passe de sont pas pareil.")
       return
     }
@@ -40,7 +32,6 @@ const Register = () => {
       )
       formRef.current.reset()
       setValidation('')
-      console.log(cred)
       navigate("/auth/login")
     } catch (err: any) {
       if(err.code === "auth/invalid-email") {

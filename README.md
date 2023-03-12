@@ -1,7 +1,35 @@
 # ELECTIVE REACT M1
-
+## RESUME RAPIDE
 Application qui permet en se connectant d'avoir une bibliothèque de jeux-vidéos (nom, description, catégorie, jouable en ligne ou pas, etc...) consultable mais aussi de pouvoir ajouter des jeux dans nos favoris et pour chaque jeu pouvoir discuter sous forme de forum pour pouvoir s'inviter à jouer ensemble.
 Pour chaque utilisateur, avoir la possibilité de rajouter son id discord, son mail et son telephone pour pouvoir etre contacter par les personnes sur le forum.
+
+## PRE-REQUIS
+- Routing : react-router-dom 
+- Contexts ou redux : Contexts (  UserContext.tsx, GameContext.tsx )
+- BDD/ Auth : Firebase --> auth/firestore
+- Api : https://www.freetogame.com/api-doc
+- Typescript : Oui
+
+## FEATURES
+- Inscription
+- Authentification
+- Edition de profil
+- Deconnexion
+- Cookie de connexion qui stocke l'uid de l'utilisateur
+- Redirection si user déjà connecté vers le dashboard
+- Systèmes d'affichage des jeux sous forme de Card
+- Recherche par noms Dynamique de jeux
+- Ajout de Favoris (Work in progress: stocké en localStorage dans un tableau pour le moment visible dans la console, et visible via l'icone de coeur present sur la card de chaque jeu qui se remplit une fois selectionné)
+- Détails du jeu selectionné avec notament : sa jaquette , sa description, des informations complementaires, un lien en savoir plus qui redirge vers l'hebergeur de l'API qui contient des informations supplémentaire 
+- Chat utilisateur lié au jeu selectionné qui sert d'espace commentaire message triée par date de publication
+
+## RESTE A FAIRE
+- Finir la feature Favoris
+- 
+
+
+# Lien vers l'application web : 
+
 
 # Getting Started with Create React App
 

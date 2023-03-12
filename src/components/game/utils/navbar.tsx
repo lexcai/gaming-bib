@@ -1,15 +1,18 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie"
 import logo from "../../../assets/img/logo/logo_react.svg";
 import { signOut } from "firebase/auth"
 import { auth } from "../../../firebase-config";
 
 const Navbar = () => {
     const navigate = useNavigate()
+    const cookies = new Cookies()
 
     const logOut = async () => {
       try {
         await signOut(auth)
+        cookies.remove("uid")
         navigate("/")
       } catch {
         alert(
@@ -36,9 +39,9 @@ const Navbar = () => {
                 <i className="bi bi-heart-fill"></i>Favoris
               </li>
             </Link>
-            <Link to={"/profile"}>
+            <Link to={"/dashboard/profile"}>
               <li>
-                <i className="bi bi-person-badge-fill"></i>Mon compte
+                <i className="bi bi-person-badge-fill"></i>Compte
               </li>
             </Link>
           </ul>
@@ -48,8 +51,8 @@ const Navbar = () => {
         <nav>
           <ul>
             {/* <Link to={"/auth/login"}> */}
-              <li>
-                <i className="bi bi-box-arrow-left" onClick={logOut}></i>Deconnexion
+              <li onClick={logOut}>
+                <i className="bi bi-box-arrow-left"></i>Deconnexion
               </li>
             {/* </Link> */}
           </ul>

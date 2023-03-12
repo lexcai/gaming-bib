@@ -1,8 +1,27 @@
-import { Outlet, Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Outlet, Link, useNavigate } from 'react-router-dom'
+import Cookies from 'universal-cookie'
 import '../assets/scss/home/home.scss'
 import Navbar from '../components/game/utils/navbar'
+import { auth } from '../firebase-config'
 
 const HomePage = () => {
+    const navigate = useNavigate()
+    const cookies = new Cookies()
+    const existe = cookies.get("monCookie") !== undefined
+
+    useEffect(() => {
+      const unsubscribe = auth.onAuthStateChanged((user) => {
+        if (!existe) {
+          navigate("/auth/login")
+        } else {
+          // const uidMemo = useMemo(() => uid, [uid])
+          navigate("/dashboard/game")
+        }
+      })
+      return unsubscribe
+    }, [existe, navigate])
+    
   return (
     <div className="Home">
       <Navbar></Navbar>

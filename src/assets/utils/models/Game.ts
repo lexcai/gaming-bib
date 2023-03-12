@@ -21,4 +21,8 @@ export default class Game {
     public release_date!: string;
 
     public freetogame_profile_url!: string;
+
+    public id_Fav!: string;
+
+    public isFav!: boolean;
 }
