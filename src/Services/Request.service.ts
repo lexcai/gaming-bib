@@ -1,10 +1,12 @@
-import { Firestore } from "firebase/firestore";
 import Game from "../assets/utils/models/Game";
 import { Users } from "../assets/utils/models/Users";
-import { db } from "../firebase-config";
+import { firebase } from "../firebase-config";
 import { Chat } from "../interfaces/IChat";
 
 export class RequestService {
+
+    public db = firebase.firestore();
+
   public options = {
     headers: {
       "X-RapidAPI-Key": "7a8f0a0e71msh0e7b6644496df46p15454bjsn2f2c71a49a68",
@@ -36,24 +38,25 @@ export class RequestService {
     }
   }
 
-  public async getUserByUid(uid: string) {
+  public async getUserByUid(uid: string): Promise<Users | null> {
     try {
-      const usersRef = db.collection("Users");
+      const usersRef = this.db.collection("Users");
       const querySnapshot = await usersRef.where("uid", "==", uid).get();
       if (querySnapshot.empty) {
         console.log("Aucun utilisateur trouvé pour l'UID donné");
         return null;
       }
-      const user: Users = querySnapshot.docs[0].data();
+      const user: Users = querySnapshot.docs[0].data() as Users;
       return user;
     } catch (error) {
       console.error("Erreur lors de la recherche de l'utilisateur : ", error);
       return null;
     }
   }
+  
 
   public async findChatsByIdGame(idGame: number): Promise<Chat[]> {
-    const chatsRef = db.collection("Chat");
+    const chatsRef = this.db.collection("Chat");
     const snapshot = await chatsRef.where("idGame", "==", idGame).get();
 
     if (snapshot.empty) {
@@ -72,13 +75,13 @@ export class RequestService {
   }
 
   public async createChat(chat: Chat): Promise<void> {
-    const firestore = db.firestore();
     try {
-      const newChatRef = await firestore.collection('Chat').doc();
-      await newChatRef.set(chat);
+      const chatsRef = this.db.collection('Chat');
+      await chatsRef.add(chat);
       console.log('Le message a été créé avec succès !');
     } catch (error) {
       console.error('Erreur lors de la création du chat :', error);
     }
   }
+  
 }
