@@ -6,9 +6,7 @@ export class Users {
 
     public Mail!: string;
     
-    public Pseudo!: string;
-    
-    public Tel!: string;
+    public username!: string;
     
     public uid!: string;
 }

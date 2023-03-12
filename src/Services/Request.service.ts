@@ -1,6 +1,6 @@
 import Game from "../assets/utils/models/Game";
 import { Users } from "../assets/utils/models/Users";
-import { collection, addDoc, getDocs, query, where, orderBy } from "firebase/firestore";
+import { collection, addDoc, getDocs, query, where, getFirestore, doc, updateDoc} from "firebase/firestore";
 import { Chat } from "../interfaces/IChat";
 import { db } from "../firebase-config";
 
@@ -133,4 +133,19 @@ export class RequestService {
       console.error("Erreur lors de la création du chat :", error);
     }
   }
+
+  public async updateUserField(uid: string, field: string, value: any): Promise<void> {
+    console.log(uid, field, value);
+      
+    const db = getFirestore();
+    const userDocRef = collection(db, 'Users');
+    const q = query(userDocRef, where("uid", "==", uid));
+    const snapshot = await getDocs(q);
+    
+    snapshot.forEach((doc) => {
+      updateDoc(doc.ref, { [field]: value });
+    });
+  }
+  
+  
 }
