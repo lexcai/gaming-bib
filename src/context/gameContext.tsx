@@ -61,12 +61,15 @@ export function GameContextProvider(props: { children: React.ReactNode }) {
   // CHAT AREA //
 
   const fetchChats = async (Game: Game) => {
+    
     try {
       let chatsData: Chat[] = await request.findChatsByIdGame(Game.id);
+      
       for (const chat of chatsData) {
-        chat.Users = (await request.getUserByUid(chat.IDUSER)) as Users;
-        chat.Game = (await request.fetchData(chat.IdGame.toString())) as Game;
+        chat.Users = await request.getUserByUid(chat.IDUSER) as Users;
+        chat.Game = await request.fetchData(chat.IdGame.toString()) as Game;
       }
+      
       setChats(chatsData);
     } catch (err) {
       console.log("Une erreur est survenue lors de la récupération des chats.");

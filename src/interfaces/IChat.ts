@@ -14,4 +14,6 @@ export interface Chat {
     Users : Users;
 
     Game : Game;
+
+    date : Date;
   }

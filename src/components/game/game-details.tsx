@@ -1,17 +1,22 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../../assets/scss/dashboard/dashboard.scss";
 import { Chat } from "../../assets/utils/models/Chat";
 import Game from "../../assets/utils/models/Game";
 import { GameContext } from "../../context/gameContext";
+import { UserContext } from "../../context/userContext";
 
 const GameDetails = () => {
   document.title = "Gaming Library - Détail du jeu";
 
+  const navigate = useNavigate();
   const params = useParams();
   const [currentGame, setCurrentGame] = useState<Game>(new Game());
-  const { fetchOneDataById, fetchChats, createChatHandler, chats } = useContext(GameContext);
+  const { currentUser } = useContext(UserContext);
+  const { fetchOneDataById, fetchChats, createChatHandler, chats } =
+    useContext(GameContext);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [message, setMessage] = useState<string>("");
   const [openClass, setOpenClass] = useState<number>(-400);
 
   useEffect(() => {
@@ -20,50 +25,82 @@ const GameDetails = () => {
       if (data) {
         setCurrentGame(data);
       }
-    }
+    };
     fetchData();
 
     const fetchDataChats = async () => {
       await fetchChats(currentGame);
-    }
+    };
     fetchDataChats();
-
   }, [params.id, currentGame.id]);
 
-  const toggleMenu = () => {
+  const toggleMenu = (event: any) => {
+    event.stopPropagation(); // empêche la propagation de l'événement
     setIsOpen((prevIsOpen) => {
       const newIsOpen = !prevIsOpen;
       setOpenClass(newIsOpen ? 0 : -400);
       return newIsOpen;
     });
+    scrollToChatBottom();
   };
 
-  const createChat = async (ChatData : Chat) => {
-    let data : Chat = new Chat();
-    data = ChatData;
+  const createChat = async () => {
+    let data: Chat = new Chat();
+    data.IDUSER = currentUser.uid;
+    data.IdGame = currentGame.id;
+    data.Game = currentGame;
+    data.Users = currentUser;
+    data.message = message;
+    setMessage("");
+
     await createChatHandler(data);
-  }
+    await fetchChats(currentGame);
+    scrollToChatBottom();
+  };
+  const handleMessageChange = (event: any) => {
+    setMessage(event.target.value);
+  };
+
+  const scrollToChatBottom = () => {};
 
   return (
     <div className="GameDetails">
       <div className="GameDetails__Chat" style={{ right: openClass + "px" }}>
         {isOpen ? (
-          <i className="bi bi-arrow-bar-right" onClick={toggleMenu}></i>
+          <i
+            className="bi bi-arrow-bar-right"
+            onClick={(event) => toggleMenu(event)}
+          ></i>
         ) : (
-          <i className="bi bi-arrow-bar-left" onClick={toggleMenu}></i>
+          <i
+            className="bi bi-arrow-bar-left"
+            onClick={(event) => toggleMenu(event)}
+          ></i>
         )}
         <div className={`GameDetails__Chat__Main`}>
           <div className="GameDetails__Chat__Main__TextArea">
-          {chats.map((chat: Chat) => (
-            <div key={chat.id} className="GameDetails__Chat__Main__TextArea__Message">
-              <h2>{chat.Users.Pseudo}</h2>
-              <p>{chat.message}</p>
-            </div>
-          ))}
+            {chats.map((chat: Chat) => (
+              <div
+                key={chat.id}
+                className="GameDetails__Chat__Main__TextArea__Message"
+              >
+                <h2>{chat.Users?.Pseudo}</h2>
+                <p>{chat.message}</p>
+              </div>
+            ))}
+            <div id="bottomTextArea"></div>
           </div>
           <div className="GameDetails__Chat__Main__Search">
-            <input type="text" placeholder="Discutez avec vos amis..." />
-            <i className="bi bi-arrow-right-circle-fill"></i>
+            <input
+              type="text"
+              value={message}
+              onChange={handleMessageChange}
+              placeholder="Discutez avec vos amis..."
+            />
+            <i
+              className="bi bi-arrow-right-circle-fill"
+              onClick={createChat}
+            ></i>
           </div>
         </div>
       </div>
@@ -100,7 +137,7 @@ const GameDetails = () => {
           <span>Éditeur :</span> {currentGame.publisher}
         </p>
         <p>
-          <span>Date de sortie :</span> Le{" "}
+          <span>Date de sortie :</span> Le
           {new Date(currentGame.release_date).toLocaleDateString("fr-FR", {
             day: "numeric",
             month: "long",

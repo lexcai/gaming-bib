@@ -10,9 +10,6 @@ const GameList = () => {
   const [searchResult, setSearchResult] = useState<Game[]>([])
   const [searchTerm, setSearchTerm] = useState("")
 
-
-  console.log(games)
-
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
     setSearchTerm(e.currentTarget.value)

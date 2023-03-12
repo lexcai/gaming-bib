@@ -14,4 +14,6 @@ export class Chat {
     public Users!: Users;
 
     public Game!: Game;
+
+    public date!: Date;
 }
