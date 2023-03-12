@@ -32,7 +32,7 @@ const Favoris = () => {
       </div>
       <div className="CardArea">
         {Games.map((game) => (
-          <Card key={game.id} game={game as Game} />
+          <Card key={game.id} game={game as Game} onFavoriteClick={() => console.log(game)} />
         ))}
       </div>
     </div>

@@ -4,30 +4,32 @@ import "../../../assets/scss/dashboard/dashboard.scss";
 import Game from "../../../assets/utils/models/Game";
 
 interface CardProps {
-  game: Game;
+  game: Game
+  onFavoriteClick: (gameId: number) => void
 }
 
-const Card: React.FC<CardProps> = ({ game }) => {
-  const [Favoris, setFavoris] = useState("bi bi-plus")
+const Card: React.FC<CardProps> = ({ game, onFavoriteClick }) => {
+  const [isFav, setIsFav] = useState(game.isFav)
+  const [iconClass, setIconClass] = useState("bi bi-heart")
 
-useEffect(() => {
-  const element = document.getElementById("elementId")
-  if (element) {
-    element.addEventListener("click", () => {
-      setFavoris(Favoris === "bi bi-plus" ? "bi bi-heart" : "bi bi-plus")
-    })
+  useEffect(() => {
+    setIconClass(isFav ? "bi bi-heart-fill" : "bi bi-heart")
+  }, [isFav])
+
+  const handleFavoriteClick = () => {
+    setIsFav(!isFav)
+    onFavoriteClick(game.id)
   }
-}, [Favoris])
 
   return (
     <Link className="CardArea__Item" to={"/dashboard/game/" + game.id}>
       <img src={game.thumbnail} alt="ceci est la fin" />
-      <Link className="CardArea__Item" to={"/dashboard/favoris/"}>
-      <i className={Favoris}></i>
+      <Link className="CardArea__Item" to={""}>
+        <i className={iconClass} onClick={handleFavoriteClick}></i>
       </Link>
       <p>{game.title}</p>
     </Link>
   )
-};
+}
 
-export default Card;
+export default Card

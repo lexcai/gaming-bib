@@ -10,27 +10,32 @@ export type GameContextProps = {
   fetchOneDataById: (id: string) => Promise<Game>;
   fetchChats: (Game: Game) => Promise<void>;
   createChatHandler: (Chat: Chat) => Promise<void>;
+  updateGames: (newGames: Game[]) => void
 };
 
 export const GameContext = createContext<GameContextProps>({
   games: [],
   chats: [],
   fetchOneDataById: async (id: string) => {
-    return new Promise((resolve, reject) => {});
+    return new Promise((resolve, reject) => {})
   },
+
   fetchChats: async (Game: Game) => {
     return new Promise((resolve, reject) => {});
   },
   createChatHandler: async (Chat: Chat) => {
     return new Promise((resolve, reject) => {});
   },
+  updateGames: () => {},
 });
 
 export function GameContextProvider(props: { children: React.ReactNode }) {
   const [loadingData, setLoadingData] = useState(true);
   const [games, setGames] = useState<Game[]>([]);
   const [chats, setChats] = useState<Chat[]>([]);
-
+  const updateGames = (newGames: Game[]) => {
+    setGames(newGames)
+  }
   let request: RequestService = new RequestService();
 
   useEffect(() => {
@@ -88,8 +93,7 @@ export function GameContextProvider(props: { children: React.ReactNode }) {
 
   return (
     <GameContext.Provider
-      value={{ games, fetchOneDataById, chats, createChatHandler, fetchChats }}
-    >
+      value={{ games, fetchOneDataById, chats, updateGames, createChatHandler, fetchChats }}>
       {!loadingData && props.children}
     </GameContext.Provider>
   );
