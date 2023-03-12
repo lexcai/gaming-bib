@@ -33,6 +33,10 @@ Pour chaque utilisateur, avoir la possibilité de rajouter son id discord, son m
 - Faire systèmes de notation de jeu {BONUS}
 - Faire connection avec un autre api qui reference les giveaways en fonction des jeux {BONUS}
 
+## BUG CONNU
+- Cookie set uniquement depuis la page de connexion/ on as ajouté une redirection vers le dashboard directement apres l'inscription 
+
+
 # Démarrer avec Create React App
 
 Ce projet a été démarré avec [Create React App](https://github.com/facebook/create-react-app).
