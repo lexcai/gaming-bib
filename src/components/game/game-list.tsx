@@ -44,7 +44,6 @@ const GameList = () => {
               type="text"
               placeholder="Que recherchez vous ?"
             />
-            <button type="submit">TEST</button>
         </div>
         <div className="GameList__TopArea__SortBy">
           <i className="bi bi-sliders2-vertical"></i>
