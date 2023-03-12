@@ -32,14 +32,14 @@ Pour chaque utilisateur, avoir la possibilité de rajouter son id discord, son m
 # Lien vers l'application web : 
 
 
-# Getting Started with Create React App
+# Démarrer avec Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ce projet a été démarré avec [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Scripts disponibles
 
 
-In the project directory, you can run:
+Dans le répertoire du projet, vous pouvez exécuter :
 ### `npm install`
 
 Afin de lire le package.json et installé les dependances nécessaire au fonctionnement de l'application 
