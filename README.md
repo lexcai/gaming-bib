@@ -3,6 +3,10 @@
 Application qui permet en se connectant d'avoir une bibliothèque de jeux-vidéos (nom, description, catégorie, jouable en ligne ou pas, etc...) consultable mais aussi de pouvoir ajouter des jeux dans nos favoris et pour chaque jeu pouvoir discuter sous forme de forum pour pouvoir s'inviter à jouer ensemble.
 Pour chaque utilisateur, avoir la possibilité de rajouter son id discord, son mail et son telephone pour pouvoir etre contacter par les personnes sur le forum.
 
+
+# Lien vers l'application web : 
+- https://gaming-bib.web.app/
+
 ## PRE-REQUIS
 - Routing : react-router-dom 
 - Contexts ou redux : Contexts (  UserContext.tsx, GameContext.tsx )
@@ -28,10 +32,6 @@ Pour chaque utilisateur, avoir la possibilité de rajouter son id discord, son m
 - Faire la recherche par filtres
 - Faire systèmes de notation de jeu {BONUS}
 - Faire connection avec un autre api qui reference les giveaways en fonction des jeux {BONUS}
-
-
-# Lien vers l'application web : 
-- https://gaming-bib.web.app/
 
 # Démarrer avec Create React App
 
