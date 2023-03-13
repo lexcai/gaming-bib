@@ -34,11 +34,11 @@ const Navbar = () => {
                 <i className="bi bi-collection-fill"></i>Librairie
               </li>
             </Link>
-            <Link to={"/dashboard/favoris"}>
+            {/* <Link to={"/dashboard/favoris"}>
               <li>
                 <i className="bi bi-heart-fill"></i>Favoris
               </li>
-            </Link>
+            </Link> */}
             <Link to={"/dashboard/profile"}>
               <li>
                 <i className="bi bi-person-badge-fill"></i>Compte

@@ -321,9 +321,20 @@ $BlackGrey: #121418;
     border-radius: 20px;
     padding: 20px;
 
+    .btn {
+      background-color: #414052;
+      padding: 20px;
+      border: transparent;
+      box-shadow: none;
+
+      span {
+        color: #fff;
+      }
+    }
+
     h2 {
       color: #ffffff;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
     p {
       color: #ffffff;

@@ -60,9 +60,9 @@ const GameList = () => {
             placeholder="Que recherchez vous ?"
           />
         </div>
-        <div className="GameList__TopArea__SortBy">
+        {/* <div className="GameList__TopArea__SortBy">
           <i className="bi bi-sliders2-vertical"></i>
-        </div>
+        </div> */}
       </div>
       {searchResult.length > 0 ? (
         <div className="CardArea">

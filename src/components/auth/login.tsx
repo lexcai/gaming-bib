@@ -44,12 +44,9 @@ const Login = () => {
       {/* {modalState.login && ( */}
       <div className="Login">
         <div className="Login__Description">
-          <h1>Lorem ipsum dolor sit amet</h1>
+          <h1>Connexion</h1>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            perferendis dolorum, dolores placeat corporis minus aliquid
-            reiciendis quaerat quae sint perspiciatis aperiam quidem atque optio
-            nam alias, maiores unde quis?
+            Ravi de vous (re)voir ! <br /> Bienvenue sur Gaming Library, une bibliothèque de jeux gratuit ou vous pouvez discuter entre amis !
           </p>
         </div>
         <form className="Login__Form" ref={formRef}>
@@ -80,9 +77,9 @@ const Login = () => {
             <span>Se connecter</span>
             <i className="bi bi-arrow-right bi-2x"></i>
           </button>
-          <div className="Login__ForgotPassword">
+          {/* <div className="Login__ForgotPassword">
             <p>Mot de passe oublié ?</p>
-          </div>
+          </div> */}
         </form>
       </div>
       {/* )} */}

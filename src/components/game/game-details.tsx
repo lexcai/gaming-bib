@@ -84,7 +84,11 @@ const GameDetails = () => {
                 key={chat.id}
                 className="GameDetails__Chat__Main__TextArea__Message"
               >
-                <h2>{chat.Users?.username ? chat.Users?.username : chat.Users?.Mail}</h2>
+                <h2>
+                  {chat.Users?.username
+                    ? chat.Users?.username
+                    : chat.Users?.Mail}
+                </h2>
                 <p>{chat.message}</p>
               </div>
             ))}
@@ -121,6 +125,14 @@ const GameDetails = () => {
       <div className="GameDetails__Description">
         <h2>Description</h2>
         <p>{currentGame.short_description}</p>
+        <h2>Discussion</h2>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={(event) => toggleMenu(event)}
+        >
+          <span>Ouvrir le chat</span>
+        </button>
       </div>
       <div className="GameDetails__Others">
         <h2>Informations Complémentaires</h2>
@@ -137,7 +149,7 @@ const GameDetails = () => {
           <span>Éditeur :</span> {currentGame.publisher}
         </p>
         <p>
-          <span>Date de sortie :</span> Le
+          <span>Date de sortie :</span> Le{" "}
           {new Date(currentGame.release_date).toLocaleDateString("fr-FR", {
             day: "numeric",
             month: "long",
